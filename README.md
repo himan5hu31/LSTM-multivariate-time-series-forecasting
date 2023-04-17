@@ -1,7 +1,6 @@
-# Multivariate Time Series Forecasting using LSTM Deep Learning Model
+# Multivariate Time Series Forecasting using CNN-LSTM
 This project is focused on predicting the future values of multivariate time series data using a Long Short-Term Memory (LSTM) deep learning model. Specifically, we will be using TESLA stock data from Yahoo Finance as our dataset to perform training and forecasting.
 ![image](https://user-images.githubusercontent.com/130960032/232433493-8b2237e4-ba95-493b-bb69-6e366790cb33.png)
-![image](https://user-images.githubusercontent.com/130960032/232433557-47fdc655-3437-4ee9-ab10-47892c89e065.png)
 ### Prerequisites
 To run this project, you will need the following dependencies:
 
@@ -22,11 +21,23 @@ The dataset used in this project is TESLA stock data, which was obtained from Ya
 * Close
 * Volume 
 
-### LSTM Model
-The LSTM model used in this project is a deep learning architecture that is well-suited for time series forecasting tasks. It is 
-designed to handle the inherent sequential dependencies and long-term dependencies that exist in time series data.
+## Models
+In this project, we have used three different models to forecast sales. These models are:
 
-The model consists of multiple LSTM layers, followed by a dense output layer.The input data is prepared as a sequence of past values of the multivariate time series, and the output is a sequence of future values. The model is trained using the Mean Squared Error (MSE) loss function and the Adam optimizer.
+* CNN Model
+* LSTM Model
+* CNN-LSTM Model
+
+**CNN Model :**
+The CNN model takes the time series data as input and uses a 1D convolutional layer to extract features from the time series. The output of the convolutional layer is then passed through a fully connected layer and a final output layer to generate the forecast.
+
+**LSTM Model :**
+The LSTM model takes the time series data as input and uses a sequence of LSTM layers to extract features from the time series. The output of the LSTM layers is then passed through a fully connected layer and a final output layer to generate the forecast.
+
+**CNN-LSTM Model :**
+The CNN-LSTM model combines the advantages of both CNN and LSTM models. The time series data is first passed through a 1D convolutional layer to extract features.The output of the convolutional layer is then passed through a sequence of LSTM layers to extract temporal dependencies in the data. Finally, the output of the LSTM layers is passed through a fully connected layer and a final output layer to generate the forecast.
+![image](https://user-images.githubusercontent.com/130960032/232433557-47fdc655-3437-4ee9-ab10-47892c89e065.png)
+
 
 #### Training and Evaluation
 The dataset is split into training and testing sets, with 80% of the data used for training and the remaining 20% used for testing. The model is trained on the training data for a specified number of epochs, with early stopping implemented to prevent overfitting.
